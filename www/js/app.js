@@ -19,11 +19,11 @@ angular.module('starter', ['ionic', 'ngMaterial'])
   })
   .service('memoService', function () {
     this.memos = [{
-      title:'Title 1',
+      title:'Demo Title 1',
       text:'1234567890qwertyuiopasdfghjkl',
       key:'q2s4'
     },{
-      title:'Title 2',
+      title:'Demo Title 2',
       text:'1234567890',
       key:'q2s5'
     }];
