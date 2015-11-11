@@ -1,1 +1,13 @@
 /* Empty. Add your own CSS if you like */
+.menuAction {
+  top: 15px !important;
+  right: -85vw !important;
+  width: 30px !important;
+  min-width: 30px;
+  color: #000;
+  position: relative;
+  z-index: 100;
+  padding: 2px !important;
+  height: 30px !important;
+  display: inline-block;
+}
