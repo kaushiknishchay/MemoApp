@@ -7,6 +7,7 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="lib/angular-material/angular-material.min.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -39,33 +40,20 @@
   <div layout="column" layout-fill>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <span>My App's Title</span>
+        <span>M-Memo</span>
         <!-- fill up the space between left and right area -->
         <span flex></span>
       </div>
     </md-toolbar>
     <md-content flex layout="column" style="background:#eee;">
-      <md-subheader class="md-primary" style="margin-right:0; text-align:center;">Unread Messages</md-subheader>
+      <!-- <md-subheader class="md-primary" style="margin-right:0; text-align:center;">Unread Messages</md-subheader>-->
       <md-card layout="row">
         <md-card-content>
-          <h2 class="md-title">Paracosm</h2>
-
+          <h2 class="md-title">Memo Title</h2>
           <p>
-            The titles of Washed Out's breakthrough song and the first single from Paracosm share the
-            two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+            Truncated Memo Text...
           </p>
         </md-card-content>
-      </md-card>
-      <md-card><!--
-      <md-subheader class="md-no-sticky md-primary">Classes</md-subheader>
-      <md-divider></md-divider>-->
-        <md-list-item class="md-2-line">
-          <div class="md-list-item-text">
-            <h3> phone.number </h3>
-          </div>
-        </md-list-item>
-        <md-divider></md-divider>
-        </md-list>
       </md-card>
       <md-button class="md-fab md-primary md-fab-bottom-right" aria-label="Add New">
         <md-icon md-svg-src="img/plus.svg"></md-icon>
