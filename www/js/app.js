@@ -39,9 +39,9 @@ angular.module('starter', ['ionic', 'ngMaterial'])
         controller: DialogController,
         template: '<md-dialog aria-label="Add New Memo" flex="80"> ' +
         '<md-content class="md-padding"> <form name="userForm"> ' +
-        '<md-input-container flex> <label>Title</label> <input ng-model="memo.title"> </md-input-container> ' +
-        '<md-input-container flex> <label>Content</label> ' +
-        '<textarea ng-model="memo.text" columns="1" row="5" md-maxlength="9999"></textarea> ' +
+        '<md-input-container flex> <label class="md-subhead">Title</label> <input ng-model="memo.title"> </md-input-container> ' +
+        '<md-input-container flex> <label class="md-subhead">Content</label> ' +
+        '<textarea ng-model="memo.text" columns="1" row="1" md-maxlength="9999"></textarea> ' +
         '</md-input-container> ' +
         '</form> </md-content> ' +
         '<div class="md-actions" layout="row"> ' +
