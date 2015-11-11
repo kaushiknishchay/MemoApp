@@ -18,9 +18,20 @@ angular.module('starter', ['ionic', 'ngMaterial'])
     })
   })
   .service('memoService', function () {
-    this.memos = [];
-
+    this.memos = [{
+      title:'Title 1',
+      text:'1234567890qwertyuiopasdfghjkl',
+      key:'q2s4'
+    },{
+      title:'Title 2',
+      text:'1234567890',
+      key:'q2s5'
+    }];
+    this.genKey = function () {
+      return ("0000" + (Math.random() * Math.pow(36, 4) << 0).toString(36)).slice(-4)
+    }
     this.add = function (memo) {
+      memo.key = this.genKey();
       this.memos.push(memo);
     };
 
@@ -29,10 +40,16 @@ angular.module('starter', ['ionic', 'ngMaterial'])
     };
 
   })
-  .controller('BaseController', function ($scope, $mdDialog, memoService) {
+  .controller('BaseController', function ($scope, $mdDialog, memoService, $mdToast) {
     $scope.nums = [1, 2];
     $scope.memos = memoService.get();
 
+    $scope.showToast = function(memo) {
+      $mdToast.show(
+        $mdToast.simple()
+          .content(memo.title+','+memo.text+',;;'+memo.key)
+      );
+    };
 
     $scope.showAdd = function (ev) {
       $mdDialog.show({
@@ -71,8 +88,10 @@ function DialogController($scope, $mdDialog, memoService) {
   };
   $scope.answer = function (answer) {
     $mdDialog.hide(answer);
-    memoService.add(answer);
-    console.log(answer);
+    if (answer != 'cancel') {
+      memoService.add(answer);
+      console.log(answer);
+    }
   };
   console.log($scope.memo);
 };

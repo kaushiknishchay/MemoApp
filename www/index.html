@@ -49,11 +49,23 @@
     <!-- <md-subheader class="md-primary" style="margin-right:0; text-align:center;">Unread Messages</md-subheader>-->
     <md-card ng-repeat="memo in memos" ng-show="memos.length>=1">
       <md-card-content>
-        <h2 class="md-title">{{memo.title}}</h2>
-
-        <p>
-          {{memo.text}}
-        </p>
+        <div layout="row" layout-align="start center">
+          <h3 class="md-title" flex="95">{{memo.title}}</h3>
+          <md-menu md-position-mode="target-right target">
+            <md-icon md-menu-origin md-svg-src="img/menu.svg" class="md-icon-button s24 menuAction" ng-click="$mdOpenMenu($event)"></md-icon>
+            <md-menu-content width="3">
+              <md-menu-item>
+                <md-button ng-click="showToast(memo)">
+                  <div layout="row">
+                    <md-icon md-menu-align-target md-svg-src="img/delete.svg" style="margin: auto 10px auto 0px;"></md-icon>
+                    <p flex>Delete</p>
+                  </div>
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </div>
+        <p>{{memo.text | limitTo:20}}<span ng-show="memo.text.length>=20">&hellip;</span></p>
       </md-card-content>
     </md-card>
     <md-card ng-repeat="num in nums"><!--
@@ -61,32 +73,29 @@
         <md-icon md-svg-src="img/menu.svg"></md-icon>
       </md-button>-->
       <md-card-content>
-        <h3 class="md-title" style="display: inline-block;">Memo Title {{num}}</h3>
-        <!--<md-button class="menuAction md-icon-button" aria-label="Add New">
-          <md-icon md-svg-src="img/menu.svg" aria-label="Cake"></md-icon>
-        </md-button>-->
-        <md-menu md-position-mode="target-right target" >
-          <md-button aria-label="Open demo menu" class="md-icon-button menuAction" ng-click="$mdOpenMenu($event)">
-            <md-icon md-menu-origin md-svg-src="img/menu.svg"></md-icon>
-          </md-button>
-          <md-menu-content width="3" >
-            <md-menu-item ng-repeat="item in [1, 2, 3]">
-              <md-button ng-click="console.log(item)">
-                <div layout="row">
-                  <p flex>Option {{item}}</p>
-                  <md-icon md-menu-align-target md-svg-src="img/menu.svg" style="margin: auto 3px auto 0;"></md-icon>
-                </div>
-              </md-button>
-            </md-menu-item>
-          </md-menu-content>
-        </md-menu>
-        <p>
-          Truncated Memo Text...
-        </p>
+        <div layout="row" layout-align="start center">
+          <h3 class="md-title" flex="95">Memo Title {{num}}</h3>
+          <!--<md-button class="menuAction md-icon-button" aria-label="Add New">
+            <md-icon md-svg-src="img/menu.svg" aria-label="Cake"></md-icon>
+          </md-button>-->
+          <md-menu md-offset="0 -5">
+              <md-icon md-menu-origin md-svg-src="img/menu.svg" class="md-icon-button s24 menuAction" ng-click="$mdOpenMenu($event)"></md-icon>
+            <md-menu-content width="3">
+              <md-menu-item>
+                <md-button ng-click="">
+                  <div layout="row">
+                    <md-icon md-menu-align-target md-svg-src="img/delete.svg" style="margin: auto 10px auto 0px;"></md-icon>
+                    <p flex>Delete</p>
+                  </div>
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </div>
+        <p>Truncated Memo Text...</p>
       </md-card-content>
     </md-card>
-    <div ng-show="memos.length<1" class="md-padding md-headline" flex flex-offset="40" flex-offset-md="25"
-         flex-order="2">
+    <div ng-show="memos.length<1" class="md-padding md-headline" layout="row" layout-align="center center">
       <p>
         Click '+' to add new Notes.
       </p>
