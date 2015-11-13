@@ -25,7 +25,7 @@ angular.module('starter', ['ionic', 'ngMaterial'])
     },{
       title:'Demo Title 2',
       text:'1234567890',
-      key:'q2s5'
+      key: 'w2s5'
     }];
     this.genKey = function () {
       return ("0000" + (Math.random() * Math.pow(36, 4) << 0).toString(36)).slice(-4)
@@ -94,4 +94,4 @@ function DialogController($scope, $mdDialog, memoService) {
     }
   };
   console.log($scope.memo);
-};
+}
