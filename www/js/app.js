@@ -3,7 +3,23 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngMaterial'])
+angular.module('starter', ['ionic', 'ngRoute', 'ngMaterial'])
+
+.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/', {
+        template: '<b>Default Cntrlr</b>',
+        //controller: 'PhoneListCtrl'
+      }).
+      when('/phones', {
+        template: '<i>Cntrlr</i>',
+        //controller: 'PhoneDetailCtrl'
+      }).
+      otherwise({
+        redirectTo: '/'
+      });
+  }])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {

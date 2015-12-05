@@ -18,7 +18,8 @@
 
   <script type="text/javascript" src="js/ng-cordova.min.js"></script>
 
-  <script src="lib/angular-animate/angular-animate.min.js"></script>
+  <script src="lib/angular-animate/angular-animate.min.js"></script> 
+  <script src="js/angular-route.min.js"></script>
   <script src="lib/angular-aria/angular-aria.min.js"></script>
   <script src="lib/angular-material/angular-material.min.js"></script>
 
@@ -38,6 +39,9 @@
     </div>
   </md-toolbar>
   <md-content style="background:#eee;">
+  <div ng-view>
+
+  </div>
     <!-- <md-subheader class="md-primary" style="margin-right:0; text-align:center;">Unread Messages</md-subheader>-->
     <md-card ng-repeat="memo in memos" ng-show="memos.length>=1">
       <md-card-content>
